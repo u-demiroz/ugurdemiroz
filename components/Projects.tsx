@@ -20,7 +20,7 @@ const PROJECTS: Project[] = [
     tagline: "Seyahat & Mekan Keşfi",
     description: "Gittiğin veya gitmek istediğin yerleri kaydet, keşfet ve arkadaşlarınla paylaş. Sosyal akış, listeler ve Instagram paylaşım uzantısı.",
     tags: ["iOS", "React Native", "Supabase", "Haritalar"],
-    url: "https://apps.apple.com/us/app/roam-map/id6761302186",
+    url: "https://roammap.app",
     accent: "#6366f1",
     emoji: "🗺️",
     status: "App Store",
