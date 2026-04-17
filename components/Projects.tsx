@@ -74,6 +74,76 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+  const cardContent = (
+    <div
+      className="relative rounded-2xl border border-slate-800/60 bg-slate-900/40 backdrop-blur-sm p-7 h-full
+                 hover:border-slate-700/80 transition-all duration-300 overflow-hidden
+                 hover:shadow-2xl hover:shadow-slate-900/50 hover:-translate-y-1"
+    >
+      {/* Accent glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+        style={{
+          background: `radial-gradient(ellipse at 50% 0%, ${project.accent}12 0%, transparent 60%)`,
+        }}
+      />
+
+      {/* Top row */}
+      <div className="relative flex items-start justify-between mb-5">
+        <div
+          className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
+          style={{ background: `${project.accent}18`, border: `1px solid ${project.accent}30` }}
+        >
+          {project.emoji}
+        </div>
+
+        <div className="flex items-center gap-2">
+          {project.status && (
+            <span className="text-xs px-2.5 py-1 rounded-full font-medium"
+              style={{
+                background: `${project.accent}18`,
+                color: project.accent,
+                border: `1px solid ${project.accent}30`,
+              }}>
+              {project.status}
+            </span>
+          )}
+          {project.url && (
+            <span
+              className="w-8 h-8 rounded-lg border border-slate-700 group-hover:border-slate-600 flex items-center justify-center
+                         text-slate-500 group-hover:text-white transition-all duration-200 text-sm"
+            >
+              ↗
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative">
+        <h3 className="text-lg font-bold text-white mb-1">{project.name}</h3>
+        <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-3">
+          {project.tagline}
+        </p>
+        <p className="text-sm text-slate-400 leading-relaxed mb-5">
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-400 border border-slate-700/50 font-medium"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <motion.div
       ref={ref}
@@ -82,77 +152,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
       className="group relative"
     >
-      <div
-        className="relative rounded-2xl border border-slate-800/60 bg-slate-900/40 backdrop-blur-sm p-7 h-full
-                   hover:border-slate-700/80 transition-all duration-300 overflow-hidden
-                   hover:shadow-2xl hover:shadow-slate-900/50 hover:-translate-y-1"
-      >
-        {/* Accent glow */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-          style={{
-            background: `radial-gradient(ellipse at 50% 0%, ${project.accent}12 0%, transparent 60%)`,
-          }}
-        />
-
-        {/* Top row */}
-        <div className="relative flex items-start justify-between mb-5">
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-            style={{ background: `${project.accent}18`, border: `1px solid ${project.accent}30` }}
-          >
-            {project.emoji}
-          </div>
-
-          <div className="flex items-center gap-2">
-            {project.status && (
-              <span className="text-xs px-2.5 py-1 rounded-full font-medium"
-                style={{
-                  background: `${project.accent}18`,
-                  color: project.accent,
-                  border: `1px solid ${project.accent}30`,
-                }}>
-                {project.status}
-              </span>
-            )}
-            {project.url && (
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-slate-700 hover:border-slate-600 flex items-center justify-center
-                           text-slate-500 hover:text-white transition-all duration-200 text-sm"
-                aria-label={`Visit ${project.name}`}
-              >
-                ↗
-              </a>
-            )}
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="relative">
-          <h3 className="text-lg font-bold text-white mb-1">{project.name}</h3>
-          <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-3">
-            {project.tagline}
-          </p>
-          <p className="text-sm text-slate-400 leading-relaxed mb-5">
-            {project.description}
-          </p>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-400 border border-slate-700/50 font-medium"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
+      {project.url ? (
+        <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+          {cardContent}
+        </a>
+      ) : (
+        cardContent
+      )}
     </motion.div>
   );
 }
