@@ -36,16 +36,6 @@ const PROJECTS: Project[] = [
     status: "Yayında",
   },
   {
-    name: "GüçlüF1",
-    tagline: "F1 Haberleri & İçerik",
-    description: "Yapay zeka destekli içerik hattı, otomatik yayın ve anlık puan durumu ile takvim sunan Türkçe Formula 1 haber platformu.",
-    tags: ["Web", "WordPress", "Yapay Zeka", "Otomasyon"],
-    url: "https://gucluf1.com",
-    accent: "#ef4444",
-    emoji: "🏎️",
-    status: "Yayında",
-  },
-  {
     name: "HookahMap",
     tagline: "Global Nargile Mekan Haritası",
     description: "Dünya genelinde nargile mekanlarını keşfet. Çoklu kaynak taraması (HERE, Yelp, Google, Foursquare) ile 500+ şehir indekslendi.",
@@ -147,7 +137,7 @@ export default function Projects() {
         className="mb-14"
       >
         <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">— Projeler</p>
-        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">Yaptıklarım</h2>
+        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">Mobil Uygulamalar</h2>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {PROJECTS.map((project, i) => (
