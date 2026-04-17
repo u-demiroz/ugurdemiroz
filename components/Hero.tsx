@@ -38,13 +38,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <motion.div variants={item} className="mb-6">
-          <span className="inline-flex items-center gap-2 text-xs font-medium text-indigo-400 tracking-widest uppercase bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-1.5">
-            <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" />
-            Yeni projelere açığım
-          </span>
-        </motion.div>
-
         <motion.h1 variants={item} className="text-5xl sm:text-7xl font-bold leading-none tracking-tight mb-6">
           Merhaba, ben{" "}
           <span className="gradient-text">Uğur</span>
