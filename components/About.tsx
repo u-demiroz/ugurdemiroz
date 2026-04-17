@@ -1,0 +1,147 @@
+"use client";
+
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+const ROLES = [
+  { icon: "✈️", title: "Kaptan Pilot", sub: "B777 / B787 — Turkish Airlines" },
+  { icon: "🔍", title: "Kalite Güvence Denetçisi", sub: "Pilvak" },
+  { icon: "👔", title: "Başkan Yardımcısı", sub: "Pilvak" },
+  { icon: "💻", title: "Hobi Geliştirici", sub: "iOS · Web · Otomasyon" },
+];
+
+const YOUTUBE = [
+  {
+    name: "Kaptan'ın Seyri Sefası",
+    desc: "Havacılık, seyahat ve cockpit hayatından içerikler.",
+    url: "https://www.youtube.com/@KaptannSeyriSefas",
+    color: "#ef4444",
+  },
+  {
+    name: "Kaptan Denizde",
+    desc: "Deniz, doğa ve keşif içerikleri.",
+    url: "https://www.youtube.com/@kaptandenizde2518",
+    color: "#0ea5e9",
+  },
+  {
+    name: "GüçlüF1",
+    desc: "Volkan Güçlü ile ortak F1 içerik kanalı.",
+    url: "https://www.youtube.com/@gucluf1",
+    color: "#f59e0b",
+  },
+];
+
+const SOCIAL = [
+  { name: "Instagram", handle: "@soundofthewinds", url: "https://instagram.com/soundofthewinds", color: "#e1306c" },
+  { name: "X / Twitter", handle: "@soundofthewinds", url: "https://x.com/soundofthewinds", color: "#fff" },
+  { name: "LinkedIn", handle: "udemiroz", url: "https://linkedin.com/in/udemiroz", color: "#0a66c2" },
+  { name: "Bluesky", handle: "soundofthewinds.bsky.social", url: "https://bsky.app/profile/soundofthewinds.bsky.social", color: "#0085ff" },
+  { name: "Flickr", handle: "ugurdemiroz", url: "https://flickr.com/photos/ugurdemiroz", color: "#ff0084" },
+];
+
+export default function About() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <section id="about" className="px-6 py-24 max-w-6xl mx-auto">
+      <motion.div
+        ref={ref}
+        initial={{ y: 24, opacity: 0 }}
+        animate={inView ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.6 }}
+        className="mb-14"
+      >
+        <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">— Hakkımda</p>
+        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
+          <span className="text-white">Birkaç rol,</span>{" "}
+          <span className="gradient-text">tek insan.</span>
+        </h2>
+      </motion.div>
+
+      {/* Roller */}
+      <motion.div
+        initial={{ y: 32, opacity: 0 }}
+        animate={inView ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20"
+      >
+        {ROLES.map((r) => (
+          <div
+            key={r.title}
+            className="flex items-center gap-4 rounded-2xl border border-slate-800/60 bg-slate-900/40 p-5"
+          >
+            <span className="text-3xl">{r.icon}</span>
+            <div>
+              <div className="text-white font-semibold">{r.title}</div>
+              <div className="text-slate-500 text-sm">{r.sub}</div>
+            </div>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* YouTube */}
+      <motion.div
+        initial={{ y: 32, opacity: 0 }}
+        animate={inView ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mb-20"
+      >
+        <p className="text-xs font-semibold text-slate-500 tracking-widest uppercase mb-5">YouTube</p>
+        <div className="flex flex-col gap-3">
+          {YOUTUBE.map((y) => (
+            <a
+              key={y.name}
+              href={y.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 rounded-2xl border border-slate-800/60 bg-slate-900/40 p-5
+                         hover:border-slate-700 hover:-translate-y-0.5 transition-all duration-200 group"
+            >
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: `${y.color}22`, border: `1px solid ${y.color}44` }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill={y.color}>
+                  <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.03 0 12 0 12s0 3.97.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.97 24 12 24 12s0-3.97-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-white font-semibold text-sm">{y.name}</div>
+                <div className="text-slate-500 text-xs mt-0.5">{y.desc}</div>
+              </div>
+              <span className="text-slate-600 group-hover:text-slate-400 transition-colors text-sm">↗</span>
+            </a>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Sosyal Medya */}
+      <motion.div
+        initial={{ y: 32, opacity: 0 }}
+        animate={inView ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        <p className="text-xs font-semibold text-slate-500 tracking-widest uppercase mb-5">Sosyal Medya</p>
+        <div className="flex flex-col gap-3">
+          {SOCIAL.map((s) => (
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 rounded-2xl border border-slate-800/60 bg-slate-900/40 p-4
+                         hover:border-slate-700 hover:-translate-y-0.5 transition-all duration-200 group"
+            >
+              <div className="flex-1">
+                <span className="text-white font-medium text-sm">{s.name}</span>
+                <span className="text-slate-500 text-sm ml-2">{s.handle}</span>
+              </div>
+              <span className="text-slate-600 group-hover:text-slate-400 transition-colors text-sm">↗</span>
+            </a>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
