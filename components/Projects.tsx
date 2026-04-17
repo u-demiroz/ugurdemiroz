@@ -40,6 +40,7 @@ const PROJECTS: Project[] = [
     tagline: "Global Nargile Mekan Haritası",
     description: "Dünya genelinde nargile mekanlarını keşfet. Çoklu kaynak taraması (HERE, Yelp, Google, Foursquare) ile 500+ şehir indekslendi.",
     tags: ["Web", "Scraping", "Haritalar", "Supabase"],
+    url: "https://hookahmap.app",
     accent: "#10b981",
     emoji: "🌿",
     status: "Yayında",
