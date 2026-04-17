@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const SOCIAL = [
   { label: "X", href: "https://x.com/soundofthewinds", icon: "𝕏" },
@@ -23,6 +24,20 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 max-w-6xl mx-auto">
       <motion.div variants={container} initial="hidden" animate="show" className="max-w-3xl">
+
+        {/* Profile photo */}
+        <motion.div variants={item} className="mb-8">
+          <div className="w-20 h-20 rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
+            <Image
+              src="/ugur.jpg"
+              alt="Uğur Demiröz"
+              width={80}
+              height={80}
+              className="object-cover w-full h-full"
+              priority
+            />
+          </div>
+        </motion.div>
 
         <motion.div variants={item} className="mb-6">
           <span className="inline-flex items-center gap-2 text-xs font-medium text-indigo-400 tracking-widest uppercase bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-1.5">
