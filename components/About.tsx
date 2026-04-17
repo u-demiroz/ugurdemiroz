@@ -33,6 +33,12 @@ const YOUTUBE = [
     url: "https://www.youtube.com/@kaptandenizde2518",
     color: "#0ea5e9",
   },
+  {
+    name: "GüçlüF1",
+    desc: "Volkan Güçlü ile ortak F1 içerik kanalı.",
+    url: "https://www.youtube.com/@GucluF1",
+    color: "#f59e0b",
+  },
 ];
 
 const SOCIAL = [
@@ -92,7 +98,7 @@ export default function About() {
         initial={{ y: 32, opacity: 0 }}
         animate={inView ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-32"
       >
         {ROLES.map((r) => (
           <div
@@ -108,9 +114,9 @@ export default function About() {
         ))}
       </motion.div>
 
+      {/* Web + YouTube + Sosyal */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-        {/* Web Platformları */}
         <motion.div
           initial={{ y: 32, opacity: 0 }}
           animate={inView ? { y: 0, opacity: 1 } : {}}
@@ -124,7 +130,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* YouTube */}
         <motion.div
           initial={{ y: 32, opacity: 0 }}
           animate={inView ? { y: 0, opacity: 1 } : {}}
@@ -138,7 +143,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Sosyal Medya */}
         <motion.div
           initial={{ y: 32, opacity: 0 }}
           animate={inView ? { y: 0, opacity: 1 } : {}}
