@@ -67,6 +67,17 @@ const PROJECTS: Project[] = [
     emoji: "🀄",
     status: "App Store",
   },
+  {
+    name: "101 Tabela",
+    tagline: "101 Score Tracker",
+    description:
+      "Scoreboard app for the classic Turkish card game 101. Track scores, manage rounds, and keep the game flowing.",
+    tags: ["iOS", "Flutter", "Game"],
+    url: "https://apps.apple.com/us/app/101-tabela/id6761936487",
+    accent: "#ec4899",
+    emoji: "🃏",
+    status: "App Store",
+  },
 ];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
