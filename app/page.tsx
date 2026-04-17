@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
@@ -27,6 +28,7 @@ export default function Home() {
       <Nav />
       <main className="relative z-10">
         <Hero />
+        <About />
         <Projects />
       </main>
       <Footer />
