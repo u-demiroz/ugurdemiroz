@@ -23,7 +23,7 @@ const PROJECTS: Project[] = [
     url: "https://roammap.app",
     accent: "#6366f1",
     emoji: "🗺️",
-    status: "App Store",
+    status: "Yayında",
   },
   {
     name: "TrivAir",
@@ -53,7 +53,7 @@ const PROJECTS: Project[] = [
     url: "https://101tabela.app",
     accent: "#f59e0b",
     emoji: "🃏",
-    status: "App Store",
+    status: "Yayında",
   },
 ];
 
