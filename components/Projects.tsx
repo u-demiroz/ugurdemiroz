@@ -129,7 +129,7 @@ export default function Projects() {
   const titleInView = useInView(titleRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="projects" className="px-6 py-24 max-w-6xl mx-auto">
+    <section id="projects" className="px-6 pt-32 pb-24 max-w-6xl mx-auto">
       <motion.div
         ref={titleRef}
         initial={{ y: 24, opacity: 0 }}
