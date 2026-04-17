@@ -17,52 +17,48 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     name: "Roam",
-    tagline: "Travel & Place Discovery",
-    description:
-      "iOS app to save, explore, and share places you've been or want to visit. With social feed, lists, and Instagram share extension.",
-    tags: ["iOS", "React Native", "Supabase", "Maps"],
+    tagline: "Seyahat & Mekan Keşfi",
+    description: "Gittiğin veya gitmek istediğin yerleri kaydet, keşfet ve arkadaşlarınla paylaş. Sosyal akış, listeler ve Instagram paylaşım uzantısı.",
+    tags: ["iOS", "React Native", "Supabase", "Haritalar"],
+    url: "https://apps.apple.com/us/app/roam-map/id6761302186",
     accent: "#6366f1",
     emoji: "🗺️",
     status: "App Store",
   },
   {
     name: "TrivAir",
-    tagline: "Aviation Trivia Game",
-    description:
-      "Async multiplayer trivia game for aviation enthusiasts. Airport codes, aircraft types, airline logos, routes — 6 categories, thousands of questions.",
-    tags: ["iOS", "Multiplayer", "Game", "Aviation"],
+    tagline: "Havacılık Bilgi Yarışması",
+    description: "Havacılık meraklıları için asenkron çok oyunculu bilgi yarışması. Havalimanı kodları, uçak tipleri, havayolu logoları, rotalar — 6 kategori, binlerce soru.",
+    tags: ["iOS", "Çok Oyunculu", "Oyun", "Havacılık"],
     url: "https://trivair.app",
     accent: "#0ea5e9",
     emoji: "✈️",
-    status: "Live",
+    status: "Yayında",
   },
   {
     name: "GüçlüF1",
-    tagline: "F1 News & Content",
-    description:
-      "Turkish-language Formula 1 news platform with AI-powered content pipeline, automated publishing, and real-time standings & calendar.",
-    tags: ["Web", "WordPress", "AI", "Automation"],
+    tagline: "F1 Haberleri & İçerik",
+    description: "Yapay zeka destekli içerik hattı, otomatik yayın ve anlık puan durumu ile takvim sunan Türkçe Formula 1 haber platformu.",
+    tags: ["Web", "WordPress", "Yapay Zeka", "Otomasyon"],
     url: "https://gucluf1.com",
     accent: "#ef4444",
     emoji: "🏎️",
-    status: "Live",
+    status: "Yayında",
   },
   {
     name: "HookahMap",
-    tagline: "Global Hookah Venue Map",
-    description:
-      "Discover hookah spots worldwide. Powered by multi-source scraping (HERE, Yelp, Google, Foursquare) with 500+ cities indexed.",
-    tags: ["Web", "Scraping", "Maps", "Supabase"],
+    tagline: "Global Nargile Mekan Haritası",
+    description: "Dünya genelinde nargile mekanlarını keşfet. Çoklu kaynak taraması (HERE, Yelp, Google, Foursquare) ile 500+ şehir indekslendi.",
+    tags: ["Web", "Scraping", "Haritalar", "Supabase"],
     accent: "#10b981",
     emoji: "🌿",
-    status: "Live",
+    status: "Yayında",
   },
   {
     name: "101 Tabela",
-    tagline: "101 Score Tracker",
-    description:
-      "Clean, dark-themed iOS scoreboard app for the classic Turkish card game 101. Fast setup, multiple players, game history.",
-    tags: ["iOS", "Flutter", "Game"],
+    tagline: "101 Puan Takibi",
+    description: "Klasik Türk kart oyunu 101 için temiz, karanlık temalı iOS puan takip uygulaması. Hızlı kurulum, çok oyunculu, oyun geçmişi.",
+    tags: ["iOS", "Flutter", "Oyun"],
     url: "https://apps.apple.com/us/app/101-tabela/id6761936487",
     accent: "#f59e0b",
     emoji: "🃏",
@@ -80,15 +76,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                  hover:border-slate-700/80 transition-all duration-300 overflow-hidden
                  hover:shadow-2xl hover:shadow-slate-900/50 hover:-translate-y-1"
     >
-      {/* Accent glow */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-        style={{
-          background: `radial-gradient(ellipse at 50% 0%, ${project.accent}12 0%, transparent 60%)`,
-        }}
+        style={{ background: `radial-gradient(ellipse at 50% 0%, ${project.accent}12 0%, transparent 60%)` }}
       />
-
-      {/* Top row */}
       <div className="relative flex items-start justify-between mb-5">
         <div
           className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
@@ -96,46 +87,27 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         >
           {project.emoji}
         </div>
-
         <div className="flex items-center gap-2">
           {project.status && (
             <span className="text-xs px-2.5 py-1 rounded-full font-medium"
-              style={{
-                background: `${project.accent}18`,
-                color: project.accent,
-                border: `1px solid ${project.accent}30`,
-              }}>
+              style={{ background: `${project.accent}18`, color: project.accent, border: `1px solid ${project.accent}30` }}>
               {project.status}
             </span>
           )}
           {project.url && (
-            <span
-              className="w-8 h-8 rounded-lg border border-slate-700 group-hover:border-slate-600 flex items-center justify-center
-                         text-slate-500 group-hover:text-white transition-all duration-200 text-sm"
-            >
+            <span className="w-8 h-8 rounded-lg border border-slate-700 group-hover:border-slate-600 flex items-center justify-center text-slate-500 group-hover:text-white transition-all duration-200 text-sm">
               ↗
             </span>
           )}
         </div>
       </div>
-
-      {/* Content */}
       <div className="relative">
         <h3 className="text-lg font-bold text-white mb-1">{project.name}</h3>
-        <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-3">
-          {project.tagline}
-        </p>
-        <p className="text-sm text-slate-400 leading-relaxed mb-5">
-          {project.description}
-        </p>
-
-        {/* Tags */}
+        <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-3">{project.tagline}</p>
+        <p className="text-sm text-slate-400 leading-relaxed mb-5">{project.description}</p>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-400 border border-slate-700/50 font-medium"
-            >
+            <span key={tag} className="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-400 border border-slate-700/50 font-medium">
               {tag}
             </span>
           ))}
@@ -153,9 +125,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       className="group relative"
     >
       {project.url ? (
-        <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-full">
-          {cardContent}
-        </a>
+        <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-full">{cardContent}</a>
       ) : (
         cardContent
       )}
@@ -176,14 +146,9 @@ export default function Projects() {
         transition={{ duration: 0.6 }}
         className="mb-14"
       >
-        <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">
-          — Work
-        </p>
-        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-          Things I&apos;ve built
-        </h2>
+        <p className="text-xs font-semibold text-indigo-400 tracking-widest uppercase mb-3">— Projeler</p>
+        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">Yaptıklarım</h2>
       </motion.div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {PROJECTS.map((project, i) => (
           <ProjectCard key={project.name} project={project} index={i} />
