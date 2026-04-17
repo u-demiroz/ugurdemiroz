@@ -50,7 +50,7 @@ const PROJECTS: Project[] = [
     tagline: "101 Puan Takibi",
     description: "Klasik Türk kart oyunu 101 için temiz, karanlık temalı iOS puan takip uygulaması. Hızlı kurulum, çok oyunculu, oyun geçmişi.",
     tags: ["iOS", "Flutter", "Oyun"],
-    url: "https://apps.apple.com/us/app/101-tabela/id6761936487",
+    url: "https://101tabela.app",
     accent: "#f59e0b",
     emoji: "🃏",
     status: "App Store",
