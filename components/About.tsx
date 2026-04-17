@@ -98,7 +98,7 @@ export default function About() {
         initial={{ y: 32, opacity: 0 }}
         animate={inView ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-32"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-48"
       >
         {ROLES.map((r) => (
           <div
