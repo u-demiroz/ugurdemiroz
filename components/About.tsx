@@ -10,6 +10,16 @@ const ROLES = [
   { icon: "💻", title: "Hobi Geliştirici", sub: "iOS · Web · Otomasyon" },
 ];
 
+const WEB_PLATFORMS = [
+  {
+    name: "GüçlüF1",
+    desc: "Türkçe Formula 1 haber platformu",
+    url: "https://gucluf1.com",
+    emoji: "🏎️",
+    color: "#ef4444",
+  },
+];
+
 const YOUTUBE = [
   {
     name: "Kaptan'ın Seyri Sefası",
@@ -23,21 +33,39 @@ const YOUTUBE = [
     url: "https://www.youtube.com/@kaptandenizde2518",
     color: "#0ea5e9",
   },
-  {
-    name: "GüçlüF1",
-    desc: "Volkan Güçlü ile ortak F1 içerik kanalı.",
-    url: "https://www.youtube.com/@gucluf1",
-    color: "#f59e0b",
-  },
 ];
 
 const SOCIAL = [
-  { name: "Instagram", handle: "@soundofthewinds", url: "https://instagram.com/soundofthewinds", color: "#e1306c" },
-  { name: "X / Twitter", handle: "@soundofthewinds", url: "https://x.com/soundofthewinds", color: "#fff" },
-  { name: "LinkedIn", handle: "udemiroz", url: "https://linkedin.com/in/udemiroz", color: "#0a66c2" },
-  { name: "Bluesky", handle: "soundofthewinds.bsky.social", url: "https://bsky.app/profile/soundofthewinds.bsky.social", color: "#0085ff" },
-  { name: "Flickr", handle: "ugurdemiroz", url: "https://flickr.com/photos/ugurdemiroz", color: "#ff0084" },
+  { name: "Instagram", handle: "@soundofthewinds", url: "https://instagram.com/soundofthewinds", emoji: "📸", color: "#e1306c" },
+  { name: "X / Twitter", handle: "@soundofthewinds", url: "https://x.com/soundofthewinds", emoji: "𝕏", color: "#ffffff" },
+  { name: "LinkedIn", handle: "udemiroz", url: "https://linkedin.com/in/udemiroz", emoji: "💼", color: "#0a66c2" },
+  { name: "Bluesky", handle: "soundofthewinds.bsky.social", url: "https://bsky.app/profile/soundofthewinds.bsky.social", emoji: "☁️", color: "#0085ff" },
+  { name: "Flickr", handle: "ugurdemiroz", url: "https://flickr.com/photos/ugurdemiroz", emoji: "📷", color: "#ff0084" },
 ];
+
+function LinkCard({ href, emoji, color, title, sub }: { href: string; emoji: string; color: string; title: string; sub: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-4 rounded-2xl border border-slate-800/60 bg-slate-900/40 p-5
+                 hover:border-slate-700 hover:-translate-y-0.5 transition-all duration-200 group"
+    >
+      <div
+        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg"
+        style={{ background: `${color}22`, border: `1px solid ${color}44` }}
+      >
+        {emoji}
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="text-white font-semibold text-sm">{title}</div>
+        <div className="text-slate-500 text-xs mt-0.5 truncate">{sub}</div>
+      </div>
+      <span className="text-slate-600 group-hover:text-slate-400 transition-colors text-sm flex-shrink-0">↗</span>
+    </a>
+  );
+}
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
@@ -80,68 +108,51 @@ export default function About() {
         ))}
       </motion.div>
 
-      {/* YouTube */}
-      <motion.div
-        initial={{ y: 32, opacity: 0 }}
-        animate={inView ? { y: 0, opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mb-20"
-      >
-        <p className="text-xs font-semibold text-slate-500 tracking-widest uppercase mb-5">YouTube</p>
-        <div className="flex flex-col gap-3">
-          {YOUTUBE.map((y) => (
-            <a
-              key={y.name}
-              href={y.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 rounded-2xl border border-slate-800/60 bg-slate-900/40 p-5
-                         hover:border-slate-700 hover:-translate-y-0.5 transition-all duration-200 group"
-            >
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: `${y.color}22`, border: `1px solid ${y.color}44` }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill={y.color}>
-                  <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.03 0 12 0 12s0 3.97.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.97 24 12 24 12s0-3.97-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
-                </svg>
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="text-white font-semibold text-sm">{y.name}</div>
-                <div className="text-slate-500 text-xs mt-0.5">{y.desc}</div>
-              </div>
-              <span className="text-slate-600 group-hover:text-slate-400 transition-colors text-sm">↗</span>
-            </a>
-          ))}
-        </div>
-      </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-      {/* Sosyal Medya */}
-      <motion.div
-        initial={{ y: 32, opacity: 0 }}
-        animate={inView ? { y: 0, opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      >
-        <p className="text-xs font-semibold text-slate-500 tracking-widest uppercase mb-5">Sosyal Medya</p>
-        <div className="flex flex-col gap-3">
-          {SOCIAL.map((s) => (
-            <a
-              key={s.name}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 rounded-2xl border border-slate-800/60 bg-slate-900/40 p-4
-                         hover:border-slate-700 hover:-translate-y-0.5 transition-all duration-200 group"
-            >
-              <div className="flex-1">
-                <span className="text-white font-medium text-sm">{s.name}</span>
-                <span className="text-slate-500 text-sm ml-2">{s.handle}</span>
-              </div>
-              <span className="text-slate-600 group-hover:text-slate-400 transition-colors text-sm">↗</span>
-            </a>
-          ))}
-        </div>
-      </motion.div>
+        {/* Web Platformları */}
+        <motion.div
+          initial={{ y: 32, opacity: 0 }}
+          animate={inView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          <p className="text-xs font-semibold text-slate-500 tracking-widest uppercase mb-5">Web Platformları</p>
+          <div className="flex flex-col gap-3">
+            {WEB_PLATFORMS.map((p) => (
+              <LinkCard key={p.name} href={p.url} emoji={p.emoji} color={p.color} title={p.name} sub={p.desc} />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* YouTube */}
+        <motion.div
+          initial={{ y: 32, opacity: 0 }}
+          animate={inView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <p className="text-xs font-semibold text-slate-500 tracking-widest uppercase mb-5">YouTube</p>
+          <div className="flex flex-col gap-3">
+            {YOUTUBE.map((y) => (
+              <LinkCard key={y.name} href={y.url} emoji="▶️" color={y.color} title={y.name} sub={y.desc} />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Sosyal Medya */}
+        <motion.div
+          initial={{ y: 32, opacity: 0 }}
+          animate={inView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.25 }}
+        >
+          <p className="text-xs font-semibold text-slate-500 tracking-widest uppercase mb-5">Sosyal Medya</p>
+          <div className="flex flex-col gap-3">
+            {SOCIAL.map((s) => (
+              <LinkCard key={s.name} href={s.url} emoji={s.emoji} color={s.color} title={s.name} sub={s.handle} />
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
     </section>
   );
 }
