@@ -58,23 +58,13 @@ const PROJECTS: Project[] = [
     status: "Live",
   },
   {
-    name: "Okey Tabela",
-    tagline: "Okey Score Tracker",
-    description:
-      "Clean, dark-themed iOS scoreboard app for the classic Turkish tile game Okey. Fast setup, multiple players, game history.",
-    tags: ["iOS", "Flutter", "Game"],
-    accent: "#f59e0b",
-    emoji: "🀄",
-    status: "App Store",
-  },
-  {
     name: "101 Tabela",
     tagline: "101 Score Tracker",
     description:
-      "Scoreboard app for the classic Turkish card game 101. Track scores, manage rounds, and keep the game flowing.",
+      "Clean, dark-themed iOS scoreboard app for the classic Turkish card game 101. Fast setup, multiple players, game history.",
     tags: ["iOS", "Flutter", "Game"],
     url: "https://apps.apple.com/us/app/101-tabela/id6761936487",
-    accent: "#ec4899",
+    accent: "#f59e0b",
     emoji: "🃏",
     status: "App Store",
   },
