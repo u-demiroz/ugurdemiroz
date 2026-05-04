@@ -55,6 +55,16 @@ const PROJECTS: Project[] = [
     emoji: "🃏",
     status: "Yayında",
   },
+  {
+    name: "SonusNotes",
+    tagline: "AI Destekli Sesli Günlük",
+    description: "Konuş, dinle, anla. Sesini kaydeder, düşüncelerini transkribe eder ve ses tonundaki gizli duyguları analiz ederek kişisel psikolojik içgörüler sunar.",
+    tags: ["iOS", "AI", "Health & Fitness", "Ses"],
+    url: "https://apps.apple.com/us/app/sonusnotes/id6764329742",
+    accent: "#a78bfa",
+    emoji: "🎙️",
+    status: "Yayında",
+  },
 ];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
