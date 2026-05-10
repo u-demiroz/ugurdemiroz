@@ -65,6 +65,16 @@ const PROJECTS: Project[] = [
     emoji: "🎙️",
     status: "Yayında",
   },
+  {
+    name: "Aftertext",
+    tagline: "Fotoğrafına Anlam Kat",
+    description: "Fotoğraflarının arkasındaki duygu ve anıyı kısa bir metinle ölümsüzleştir. Minimalist tasarım, maksimum etki.",
+    tags: ["iOS", "Fotoğraf", "Minimalist"],
+    url: "https://aftertext.app",
+    accent: "#f97316",
+    emoji: "📸",
+    status: "Yakında",
+  },
 ];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
